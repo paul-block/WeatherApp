@@ -1,0 +1,7 @@
+<div class="location-box" (click)="showLocationInOverview()">
+    <div class="flex-column">
+        <div id="temp">{{location.current.temp_c}}<span id="degree">°</span> </div>
+        <div id="city">{{location.location.name}}</div>
+    </div>
+    <img src={{location.current.condition.icon}} alt="">
+</div>

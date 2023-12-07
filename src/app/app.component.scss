@@ -1,0 +1,68 @@
+app-sidebar {
+    position: absolute; 
+    left: -300px;
+    top: 0;
+}
+
+mat-icon {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+.sidebarVisible {
+    animation: slide-in-icon 255ms ease-in;
+    left: 325px;
+}
+
+.noSidebar {
+    animation: slide-out-icon 255ms ease-in;
+    left: 25px;
+}
+
+.slide-in {
+    animation: slide-in-sidebar 255ms ease-in;
+    left: 0;
+}
+
+.slide-out {
+    animation: slide-out-sidebar 255ms ease-out;
+    left: -300px;
+}
+
+@keyframes slide-in-icon {
+    from { 
+        left: 25px;
+    }
+    to {
+        left: 325px;
+    }
+}
+
+@keyframes slide-out-icon {
+    from { 
+        left: 325px;
+    }
+    to {
+        left: 25px;
+    }
+}
+
+@keyframes slide-in-sidebar {
+    from { 
+        left: -300px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slide-out-sidebar {
+    from { 
+        left: 0;
+    }
+    to {
+        left: -300px;
+    }
+}

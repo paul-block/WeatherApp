@@ -1,0 +1,8 @@
+<div id="container">
+    <div class="forecast">
+        <div id="day">{{forecastDataEachDay?.date | date: 'EEEE'}}</div>
+        <img id="condition" src={{forecastDataEachDay.day.condition.icon}}>
+        <div id="lowestTemp">L: {{forecastDataEachDay.day.mintemp_c}}</div>
+        <div id="highestTemp">H: {{forecastDataEachDay.day.maxtemp_c}}</div>
+    </div>
+</div>

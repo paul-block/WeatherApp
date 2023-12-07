@@ -1,0 +1,7 @@
+<div id="container">
+    <div class="forecast">
+        <div id="day">{{forecastDataEachHour.time | slice:11}}</div>
+        <img id="condition" src={{forecastDataEachHour.condition.icon}}>
+        <div id="lowestTemp">{{forecastDataEachHour.temp_c}}°</div>
+    </div>
+</div>

@@ -1,0 +1,251 @@
+#overview-container {
+    width: 750px;
+    height: 30px;
+    max-height: 500px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: transparent;
+
+        #input-container {
+            position: absolute;  
+            top: 25px;          
+            width: 300px;
+            z-index: 999;
+            
+                #input {
+                    background-color: #ffffff2f;
+                    width: 100%;
+                    height: 35px;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 5px 25px; 
+                    
+                    &::placeholder {
+                        color: black;
+                    }
+
+                    &:focus {
+                        border: none;
+                    }
+                }         
+
+                mat-icon {
+                    position: absolute;
+                    right: -25px;
+                    top: 10px;
+                }
+
+                #autocomplete {
+                    position: absolute;
+                    width: calc(100% + 50px);
+                    // padding: 5px 25px;
+                    top: 50px;
+                    border-radius: 10px;
+                    background-color: #ffffff2f;
+                    z-index: 999;
+    
+                    .suggestion {
+                        padding: 10px;
+                        font-size: 18px;
+                        cursor: pointer;
+                    
+                    &:hover {
+                        background-color: lightblue;
+                        border-radius: 10px;
+                    }
+                    }
+                }
+        
+        }
+
+            #toggle-container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 500px;
+                width: 750px;
+            }
+
+            #local-time {
+                position: absolute;
+                top: 75px;
+                font-weight: bold;
+
+            }
+
+            #location {
+                position: absolute;
+                left: 25px;
+                top: 75px;
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                
+                    #city {
+                        font-size: 28px;
+                    }
+
+                    #country {
+                        font-size: 18px;
+                    }
+            }
+    
+            #degree {
+                position: absolute;
+                top: 200px;
+                text-align: center;
+                font-size: 64px;
+                font-weight: bold;
+            }
+
+            #condition {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 65px;
+                right: 25px;
+            }
+    
+            #conditionIcon {
+     
+            }
+    
+            #conditionText {
+  
+            }
+
+            #details {
+                position: absolute;
+                top: 300px;
+                display: flex;
+                gap: 50px;
+
+                span {
+                    color: #fff;
+                }
+
+                #wind, #temp, #humidity {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+        
+            }
+    
+            #forecastContainerHourly {
+                position: absolute;
+                left: 50px;
+                bottom: 0px;
+                display: flex;
+                gap: 15px;
+                width: calc(100% - 100px);
+                overflow-x: scroll;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+            }
+
+            #forecastContainerDaily {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                bottom: -150px;
+                opacity: 0;
+                transition: all 255ms ease-in-out;
+            }
+
+            .opacityIn {
+                animation: opacityIn 255ms ease-in-out;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes opacityIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes opacityOut {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+
+            #add-icon {
+                position: absolute;
+                top: 10px;
+                right: 25px;
+                font-size: 28px;
+                cursor: pointer;
+            }
+
+            #more-icon {
+                position: absolute;
+                top: 10px;
+                left: 25px;
+                font-size: 28px;
+                cursor: pointer;
+            }
+
+            #less-icon {
+                position: absolute;
+                top: 10px;
+                left: 25px;
+                font-size: 28px;
+                cursor: pointer;
+            }
+    }
+
+    .white {
+        color: #ffffffc4;
+    }
+
+@media (max-width: 500px) {
+    #overview-container {
+        width: calc(100vw - 50px);
+    
+        #forecastContainer {
+            width: calc(100% - 20px);
+            left: 10px;
+        }
+
+        #details {
+            gap: 20px;
+        }
+
+        #autocomplete {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}
+
+.fullheight {
+    animation: growHeight 255ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes growHeight {
+    from {
+        height: 30px;
+        background-color: transparent;
+    }
+    to {
+        height: 500px;
+        background-color: #ffffff2f;
+    }
+}

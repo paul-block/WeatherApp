@@ -1,0 +1,56 @@
+<div id="overview-container" [class.fullheight]="currentForecast">
+
+    <div id="input-container">
+        <input id="input" type="text" placeholder="Enter your location" [(ngModel)]="inputValue"
+            (keyup)="getAutocomplete(inputValue)">
+        <mat-icon matSuffix>search</mat-icon>
+
+        <div id="autocomplete" *ngIf="autocompleteArray.length > 0 && inputValue">
+            <div class="suggestion" *ngFor="let city of autocompleteArray" (click)="getForecastById(city.id)">
+                {{city.name}},
+                {{city.country}}
+            </div>
+        </div>
+    </div>
+    <div id="toggle-container" *ngIf="currentForecast">
+        <mat-icon id="more-icon" *ngIf="!showDailyForecast" (click)="toggleDailyForecasts()">expand_more</mat-icon>
+        <mat-icon id="less-icon" *ngIf="showDailyForecast" (click)="toggleDailyForecasts()">expand_less</mat-icon>
+        <mat-icon id="add-icon" (click)="addCurrentLocation()">add</mat-icon>
+
+        <!-- <div class="noSuggestions" *ngIf="autocompleteArray === 0 && inputValue">Oops! No city found ...</div> -->
+        <div id="local-time">{{currentForecast?.location.localtime | slice: 11}} Uhr</div>
+        <div id="location">
+            <div id="city">{{currentForecast?.location.name}},</div>
+            <div id="country">{{currentForecast?.location.country}}</div>
+        </div>
+        <div id="degree">{{currentForecast?.current.temp_c}}°</div>
+        <div id="condition">
+            <img id="conditionIcon" src={{currentForecast?.current.condition.icon}}>
+            <div id="conditionText">{{currentForecast?.current.condition.text}}</div>
+        </div>
+        <div id="details">
+            <div id="wind"> <mat-icon class="white">air</mat-icon> {{currentForecast?.current.wind_kph}}km/h </div>
+            <span>|</span>
+            <div id="temp"> <mat-icon class="white">device_thermostat</mat-icon>
+                T:{{this.lowestTemp}}/H:{{this.highestTemp}}
+            </div>
+            <span>|</span>
+            <div id="humidity"> <mat-icon class="white">water_drop</mat-icon>
+                {{currentForecast?.current.humidity}}%
+            </div>
+        </div>
+        <!-- <div id="highestTemp">H: {{currentForecast?.forecast.forecastday[0].day.maxtemp_c}}°</div>
+    <div id="lowestTemp">L: {{currentForecast?.forecast.forecastday[0].day.mintemp_c}}°</div> -->
+
+        <div id="forecastContainerHourly">
+            <app-forecast-hours *ngFor="let forecastDataEachHour of relevantHours"
+                [forecastDataEachHour]="forecastDataEachHour"></app-forecast-hours>
+        </div>
+
+        <div id="forecastContainerDaily" *ngIf="showDailyForecast" [class.opacityIn]="showDailyForecast">
+            <app-forecast *ngFor="let forecastday of currentForecast?.forecast.forecastday | slice:1"
+                [forecastDataEachDay]="forecastday"></app-forecast>
+        </div>
+
+    </div>
+</div>

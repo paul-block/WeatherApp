@@ -1,0 +1,26 @@
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(232, 232, 232, 0.427);
+    border-radius: 10px;
+
+
+        .forecast {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 750px;
+            padding: 5px 25px;
+
+            #day, #highestTemp {
+                min-width: 60px;
+            }
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                }
+        }
+}

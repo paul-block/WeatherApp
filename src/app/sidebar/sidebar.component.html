@@ -1,0 +1,10 @@
+<div id="sidebar-container" cdkDropList [cdkDropListConnectedTo]="['delete-zone']" (cdkDropListDropped)="drop($event)">
+    <app-saved-location cdkDrag *ngFor="let location of dataService.savedLocations; let i = index"
+        [location]="location"></app-saved-location>
+
+    <div id="delete-zone" cdkDropList (cdkDropListDropped)="deleteOnDrop($event)">
+        <div id="icon-container">
+            <mat-icon>delete</mat-icon>
+        </div>
+    </div>
+</div>

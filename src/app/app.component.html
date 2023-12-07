@@ -1,0 +1,8 @@
+<mat-icon (click)="showSidebar()"
+    [ngClass]="{'sidebarVisible': dataSerivce.sidebarVisible, 'noSidebar': !dataSerivce.sidebarVisible}">menu</mat-icon>
+
+
+<app-sidebar
+    [ngClass]="{'slide-in':dataSerivce.sidebarVisible, 'slide-out': !dataSerivce.sidebarVisible}"></app-sidebar>
+
+<app-overview></app-overview>

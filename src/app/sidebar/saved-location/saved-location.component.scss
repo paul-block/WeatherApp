@@ -1,0 +1,25 @@
+.location-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff79;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 25px 0 25px;
+    cursor: pointer;
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #temp {
+            font-size: 36px;
+        }
+
+        #city {
+            font-size: 20px;
+        }
+}
